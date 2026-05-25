@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zhenghang (Ken) Li — Portfolio</title>
+<style>
+  :root {
+    --bg: #ffffff; --text: #1a1a2e; --muted: #6b7280;
+    --accent: #2563eb; --surface: #f8fafc; --border: #e2e8f0;
+    --green: #059669;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:var(--bg); line-height:1.6; }
+
+  nav { display:flex; justify-content:space-between; align-items:center; padding:20px 40px; max-width:1000px; margin:0 auto; }
+  nav .logo { font-size:18px; font-weight:700; }
+  nav .logo span { color:var(--accent); }
+  nav a { color:var(--muted); text-decoration:none; margin-left:24px; font-size:14px; }
+  nav a:hover { color:var(--accent); }
+
+  .hero { text-align:center; padding:80px 20px 60px; max-width:700px; margin:0 auto; }
+  .hero h1 { font-size:36px; font-weight:800; letter-spacing:-1px; }
+  .hero h1 span { color:var(--accent); }
+  .hero p { color:var(--muted); font-size:17px; margin-top:12px; }
+  .hero .badges { margin-top:20px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+  .hero .badge { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:6px 16px; font-size:13px; }
+
+  .hero .cta { margin-top:24px; display:flex; gap:12px; justify-content:center; }
+  .hero .cta a { padding:10px 24px; border-radius:8px; font-size:14px; font-weight:500; text-decoration:none; }
+  .cta .primary { background:var(--accent); color:#fff; }
+  .cta .secondary { background:var(--surface); border:1px solid var(--border); color:var(--text); }
+
+  section { max-width:900px; margin:0 auto 60px; padding:0 20px; }
+  section h2 { font-size:22px; margin-bottom:20px; text-align:center; }
+
+  /* About Me */
+  .about { max-width:700px; margin:0 auto 60px; padding:0 20px; }
+  .about h2 { font-size:22px; margin-bottom:16px; text-align:center; }
+  .about p { color:var(--muted); font-size:15px; line-height:1.8; }
+  .about .highlight { color:var(--accent); font-weight:500; }
+
+  .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+  .project-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:24px; }
+  .project-card h3 { font-size:17px; margin-bottom:6px; }
+  .project-card h3 a { color:var(--text); text-decoration:none; }
+  .project-card h3 a:hover { color:var(--accent); }
+  .project-card .desc { color:var(--muted); font-size:14px; margin-bottom:12px; }
+  .project-card .tags { display:flex; gap:6px; flex-wrap:wrap; }
+  .project-card .tag { background:var(--bg); border:1px solid var(--border); border-radius:4px; padding:2px 8px; font-size:11px; color:var(--muted); }
+
+  .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+  .skill-group { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px; }
+  .skill-group h3 { font-size:14px; color:var(--accent); margin-bottom:10px; }
+  .skill-group ul { list-style:none; }
+  .skill-group li { font-size:14px; color:var(--muted); padding:3px 0; }
+  .skill-group li::before { content:"▹ "; color:var(--accent); }
+
+  /* Contact */
+  .contact { max-width:600px; margin:0 auto 60px; padding:0 20px; text-align:center; }
+  .contact h2 { font-size:22px; margin-bottom:20px; }
+  .contact-links { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; }
+  .contact-item { display:flex; flex-direction:column; align-items:center; gap:4px; }
+  .contact-item .icon { font-size:28px; }
+  .contact-item .label { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; }
+  .contact-item .value { font-size:14px; }
+  .contact-item .value a { color:var(--accent); text-decoration:none; }
+  .contact-item .value a:hover { text-decoration:underline; }
+
+  .footer { text-align:center; padding:40px 20px; border-top:1px solid var(--border); max-width:900px; margin:0 auto; }
+  .footer p { color:var(--muted); font-size:13px; }
+  .footer a { color:var(--accent); text-decoration:none; }
+
+  @media (max-width:640px) {
+    nav { flex-direction:column; gap:12px; padding:16px; }
+    nav a { margin-left:0; margin-right:16px; }
+    .hero h1 { font-size:26px; }
+    .hero { padding:50px 16px 40px; }
+    .hero .cta { flex-direction:column; align-items:center; }
+    .contact-links { flex-direction:column; gap:16px; }
+    .about p { font-size:14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Zhenghang <span>Li</span></div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Data-Driven <span>Analytics & Operations</span></h1>
+  <p>MS Project Management @ Northeastern University · 3+ years in logistics operations analytics · Building dashboards, automating pipelines, and driving KPI-based decisions. Targeting DA / BA / PM-Data roles in California.</p>
+  <div class="badges">
+    <span class="badge">&#127758; H1B · Open to CA</span>
+    <span class="badge">&#128202; Data Analyst</span>
+    <span class="badge">&#128203; Business Analyst</span>
+    <span class="badge">&#9881; Operations Analytics</span>
+  </div>
+  <div class="cta">
+    <a href="resume.pdf" class="primary">Download Resume</a>
+    <a href="https://github.com/Ken-Zhenghang" class="secondary">View GitHub</a>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h2>About Me</h2>
+  <p>
+    I'm a <span class="highlight">data-driven operations analyst</span> with 3+ years of experience in logistics and supply chain analytics, currently pursuing an MS in Project Management at Northeastern University. My work bridges business strategy and technical execution — I build dashboards that drive KPI decisions, automate data pipelines that eliminate manual reporting, and deliver actionable insights from complex operational datasets.
+  </p>
+  <p style="margin-top:12px;">
+    Previously, I worked at <span class="highlight">Gofo</span>, where I designed and maintained logistics KPI dashboards (Tableau &amp; Power BI) tracking pickup performance, cost trends, and driver utilization across regional operations. I also worked with document automation and NLP pipelines at <span class="highlight">YangTze River</span>, processing 3,000+ unstructured documents. I'm currently on <span class="highlight">H1B</span> and actively seeking <span class="highlight">Data Analyst, Business Analyst, or PM-Data</span> opportunities in California.
+  </p>
+</section>
+
+<section id="projects">
+  <h2>Featured Projects</h2>
+  <div class="projects">
+    <div class="project-card">
+      <h3><a href="https://github.com/Ken-Zhenghang/daily-push">&#128202; Daily Push — Job Tracker</a></h3>
+      <p class="desc">Automated multi-source job scraper + Telegram alert system for Data Analyst roles in SF, LA, and San Jose. Pulls from Greenhouse, Lever, Ashby, LinkedIn, and Indeed. Runs on GitHub Actions with scheduled daily execution.</p>
+      <div class="tags"><span class="tag">JavaScript</span><span class="tag">GitHub Actions</span><span class="tag">Telegram API</span><span class="tag">Web Scraping</span></div>
+    </div>
+    <div class="project-card">
+      <h3><a href="#">&#128200; Logistics KPI Dashboard</a></h3>
+      <p class="desc">Designed and maintained interactive Tableau &amp; Power BI dashboards for Gofo's regional logistics operations — tracking pickup performance, cost-per-delivery trends, driver utilization rates, and SLA compliance. Built from real-world operational data with SQL-based ETL pipelines, enabling weekly KPI reviews and executive decision-making.</p>
+      <div class="tags"><span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">ETL</span><span class="tag">KPI Reporting</span></div>
+    </div>
+    <div class="project-card">
+      <h3><a href="#">&#128270; Customer Churn Analysis</a></h3>
+      <p class="desc">End-to-end Python analytics project using the Telco Customer Churn dataset (Kaggle). Performed data cleaning, exploratory data analysis, feature engineering, and built predictive models (Logistic Regression, Random Forest, XGBoost) to identify churn drivers. Delivered actionable retention recommendations with visualizations and a summary report.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span></div>
+    </div>
+    <div class="project-card">
+      <h3><a href="#">&#128221; Document Extraction &amp; Resume Parsing</a></h3>
+      <p class="desc">Built document and resume-parsing workflows using Flask, LangChain, spaCy, and vector storage to automate information extraction from unstructured files. Improved resume information extraction accuracy by 25% through custom NER configuration and domain-specific labeled data. Processed 3,000+ unstructured documents, achieving 60% reduction in manual review time.</p>
+      <div class="tags"><span class="tag">Flask</span><span class="tag">LangChain</span><span class="tag">spaCy</span><span class="tag">Vector Storage</span><span class="tag">NER</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Tech Stack</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>Analytics &amp; BI</h3>
+      <ul><li>Python</li><li>SQL</li><li>Tableau</li><li>Power BI</li><li>Excel</li><li>Pandas</li></ul>
+    </div>
+    <div class="skill-group">
+      <h3>Tools &amp; Frameworks</h3>
+      <ul><li>Flask</li><li>NiceGUI</li><li>LangChain</li><li>spaCy</li><li>GitHub Actions</li><li>Jira</li></ul>
+    </div>
+    <div class="skill-group">
+      <h3>Databases</h3>
+      <ul><li>MySQL</li><li>SQL Server</li><li>MongoDB</li></ul>
+    </div>
+    <div class="skill-group">
+      <h3>Core Competencies</h3>
+      <ul><li>KPI Reporting</li><li>Operational Analytics</li><li>A/B Testing</li><li>Process Improvement</li><li>Agile/Scrum</li><li>Stakeholder Mgmt</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Get in Touch</h2>
+  <div class="contact-links">
+    <div class="contact-item">
+      <div class="icon">&#128231;</div>
+      <div class="label">Email</div>
+      <div class="value"><a href="mailto:li.zhengh@northeastern.edu">li.zhengh@northeastern.edu</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="icon">&#128279;</div>
+      <div class="label">LinkedIn</div>
+      <div class="value"><a href="https://www.linkedin.com/in/zhenghang-li/" target="_blank" rel="noopener">linkedin.com/in/zhenghang-li</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="icon">&#128187;</div>
+      <div class="label">GitHub</div>
+      <div class="value"><a href="https://github.com/Ken-Zhenghang" target="_blank" rel="noopener">github.com/Ken-Zhenghang</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <p>&copy; 2026 Zhenghang Li &middot; Built with HTML/CSS &middot; <a href="https://github.com/Ken-Zhenghang">GitHub</a> &middot; <a href="https://www.linkedin.com/in/zhenghang-li/">LinkedIn</a></p>
+</div>
+
+</body>
+</html>
