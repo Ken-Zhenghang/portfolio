@@ -1,0 +1,11 @@
+[submodule "customer-churn-analysis"]
+	path = customer-churn-analysis
+	url = https://github.com/Ken-Zhenghang/customer-churn-analysis.git
+
+[submodule "resume-parser"]
+	path = resume-parser
+	url = https://github.com/Ken-Zhenghang/resume-parser.git
+
+[submodule "flower-chatbot"]
+	path = flower-chatbot
+	url = https://github.com/Ken-Zhenghang/flower-chatbot.git
